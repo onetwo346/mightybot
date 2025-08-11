@@ -1,0 +1,13 @@
+{
+  "name": "mighty-ai",
+  "version": "1.0.0",
+  "description": "The ultimate AI chatbot experience - free and unlimited!",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.10.1"
+  }
+}

@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Mighty AI - Ultimate AI Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Cosmic Background -->
+    <div class="cosmic-bg">
+        <div class="stars"></div>
+        <div class="floating-particles"></div>
+    </div>
+
+    <!-- Authentication & Intro Pages -->
+    <div class="auth-container" id="authContainer">
+        <!-- Landing/Intro Page -->
+        <div class="intro-page" id="introPage">
+            <div class="intro-hero">
+                <div class="hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-robot"></i>
+                        <div class="hero-glow"></div>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">MIGHTY AI</span>
+                    </h1>
+                    <p class="hero-subtitle">The Ultimate AI Experience</p>
+                    <p class="hero-description">
+                        Experience the power of advanced AI with unlimited conversations, 
+                        lightning-fast responses, and completely free access to cutting-edge technology.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-infinity"></i>
+                            <span>Unlimited Conversations</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Lightning Fast</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gift"></i>
+                            <span>Completely Free</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure & Private</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <button type="button" class="cta-btn primary" id="getStartedBtn">
+                            <i class="fas fa-rocket"></i>
+                            <span>Get Started Free</span>
+                        </button>
+                        <button type="button" class="cta-btn secondary" id="signInBtn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Sign In</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="floating-chat-preview">
+                        <div class="preview-message ai">
+                            <div class="preview-avatar">
+                    <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="preview-text">
+                                Hey there! I'm Mighty AI - ready to help with anything you need! ✨
+                            </div>
+                        </div>
+                        <div class="preview-message user">
+                            <div class="preview-text">
+                                This is amazing! How does it work?
+                            </div>
+                        </div>
+                        <div class="preview-typing">
+                            <div class="typing-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Page -->
+        <div class="auth-page" id="signUpPage">
+            <div class="auth-form">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2>Create Your Account</h2>
+                    <p>Join the future of AI conversation</p>
+                </div>
+                
+                <form class="auth-form-content" id="signUpForm">
+                    <div class="form-group">
+                        <label for="signUpName">Full Name</label>
+                        <input type="text" id="signUpName" required>
+                        <i class="fas fa-user form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signUpEmail">Email Address</label>
+                        <input type="email" id="signUpEmail" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signUpPassword">Password</label>
+                        <input type="password" id="signUpPassword" required>
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                        <i class="fas fa-check form-icon"></i>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-rocket"></i>
+                        <span>Create Account</span>
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? 
+                        <a href="#" id="switchToSignIn">Sign In</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Page -->
+        <div class="auth-page" id="signInPage">
+            <div class="auth-form">
+                <div class="auth-header">
+                    <div class="auth-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to continue your AI journey</p>
+                </div>
+                
+                <form class="auth-form-content" id="signInForm">
+                    <div class="form-group">
+                        <label for="signInEmail">Email Address</label>
+                        <input type="email" id="signInEmail" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signInPassword">Password</label>
+                        <input type="password" id="signInPassword" required>
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Sign In</span>
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Don't have an account? 
+                        <a href="#" id="switchToSignUp">Create one</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div class="app" id="mainApp">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button type="button" class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>New Chat</span>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="section">
+                    <h3>Recent Chats</h3>
+                    <div class="chat-list" id="chatList">
+                        <!-- Chat history will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">John Doe</div>
+                        <div class="user-email" id="userEmail">john@example.com</div>
+                    </div>
+                    <button type="button" class="logout-btn" id="logoutBtn" aria-label="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+                
+                <button type="button" class="settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+                <button type="button" class="clear-btn" id="clearAllBtn">
+                    <i class="fas fa-trash"></i>
+                    <span>Clear All</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="brand">
+                        <div class="brand-icon">
+                            <i class="fas fa-robot"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <div class="brand-text">
+                            <h1>MIGHTY AI</h1>
+                            <span>Ultimate AI Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="chat-title" id="chatTitle">New Chat</div>
+                    <div class="ai-status">
+                        <div class="status-indicator">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-dot"></div>
+                        </div>
+                        <span>All Systems Active</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Container -->
+            <main class="chat-main">
+            <!-- AI Capabilities -->
+            <div class="capability-pills">
+                <div class="pill reasoning-pill">
+                    <i class="fas fa-brain"></i>
+                    <span>Advanced Reasoning</span>
+                    <div class="pill-status"></div>
+                </div>
+                <div class="pill creative-pill">
+                    <i class="fas fa-palette"></i>
+                    <span>Creative Writing</span>
+                    <div class="pill-status"></div>
+                </div>
+                <div class="pill analysis-pill">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Data Analysis</span>
+                    <div class="pill-status"></div>
+                </div>
+                <div class="pill coding-pill">
+                    <i class="fas fa-code"></i>
+                    <span>Code Generation</span>
+                    <div class="pill-status"></div>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="messages-container">
+                <div class="messages-wrapper" id="chatContainer">
+                    <!-- Welcome Message -->
+                    <div class="message-group ai-group">
+                        <div class="message-avatar">
+                            <div class="avatar-inner">
+                    <i class="fas fa-robot"></i>
+                                <div class="avatar-glow"></div>
+                            </div>
+                        </div>
+                        <div class="message-bubble ai-bubble">
+                            <div class="message-header">
+                                <span class="sender-name">Mighty AI</span>
+                                <span class="message-time">Just now</span>
+                            </div>
+                            <div class="message-content">
+                                <h3>🚀 Hey there!</h3>
+                                <p>I'm <strong>Mighty AI</strong> - ready to help with anything you need!</p>
+                                <p><strong>What's on your mind?</strong> ✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar">
+                        <div class="avatar-inner typing-avatar">
+                            <i class="fas fa-robot"></i>
+                            <div class="avatar-glow"></div>
+                        </div>
+                    </div>
+                    <div class="typing-bubble">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                        <span class="typing-text">AI is thinking...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                            placeholder="✨ Ask me anything... Press Enter to send"
+                        rows="1"
+                            maxlength="5000"
+                    ></textarea>
+                        <div class="input-actions">
+                            <button id="sendBtn" class="send-btn" aria-label="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                                <div class="btn-glow"></div>
+                    </button>
+                </div>
+                    </div>
+                    <div class="input-info">
+                        <div class="ai-indicator">
+                            <i class="fas fa-sparkles"></i>
+                            <span>Powered by Advanced AI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </div>
+            </div>
+            
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button type="button" class="close-btn" id="closeSettings" aria-label="Close settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="themeSelect">Theme</label>
+                    <select id="themeSelect">
+                        <option value="cosmic">Cosmic (Default)</option>
+                        <option value="dark">Dark Mode</option>
+                        <option value="neon">Neon Cyber</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="speedSelect">AI Response Speed</label>
+                    <select id="speedSelect">
+                        <option value="slow">Slow (3-5s)</option>
+                        <option value="normal" selected>Normal (1-3s)</option>
+                        <option value="fast">Fast (0.5-1s)</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="soundToggle">Sound Effects</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="soundToggle" checked aria-label="Enable sound effects">
+                        <label for="soundToggle"></label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label for="autosaveToggle">Auto-save Chats</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="autosaveToggle" checked aria-label="Auto-save chat conversations">
+                        <label for="autosaveToggle"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="export-btn" id="exportChats">
+                    <i class="fas fa-download"></i> Export Chats
+                </button>
+                <button type="button" class="import-btn" id="importChats">
+                    <i class="fas fa-upload"></i> Import Chats
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Confirm Action</h2>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" id="cancelAction">Cancel</button>
+                <button type="button" class="confirm-btn" id="confirmAction">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============ MIGHTY AI - ULTIMATE CHAT SYSTEM WITH AUTH ============
+        
+        class MightyAI {
+            constructor() {
+                this.currentUser = null;
+                this.currentChatId = null;
+                this.chats = {};
+                this.users = JSON.parse(localStorage.getItem('mightyAI_users')) || {};
+                this.currentSession = JSON.parse(localStorage.getItem('mightyAI_session')) || null;
+                this.settings = {
+                    theme: 'cosmic',
+                    speed: 'normal',
+                    sound: true,
+                    autosave: true
+                };
+                
+                this.aiResponses = [
+                    "Great question about that! Based on my advanced reasoning capabilities, I can see several important angles to explore. Let me break this down for you in detail...",
+                    "I find that particularly interesting! Using my analytical processing, I can offer some valuable insights on this topic. Here's what I think...",
+                    "That's a thoughtful question! My AI systems are processing multiple perspectives on this. Let me share my comprehensive analysis...",
+                    "Excellent topic! This touches on several fascinating areas. Using my knowledge synthesis capabilities, here's my detailed response...",
+                    "I'm excited to help with this! My advanced AI processing suggests several key points worth exploring. Let me walk you through my thinking...",
+                    "Perfect timing for this question! I love discussing topics like this. Here's my perspective based on my advanced capabilities...",
+                    "That's fascinating! My neural networks are lighting up with insights about this. Let me share what I've discovered...",
+                    "Great point! My reasoning engines have analyzed this from multiple angles. Here's my comprehensive take...",
+                    "I'm really glad you asked about this! My AI systems have been processing similar queries, and here's what I've learned...",
+                    "Excellent question! My advanced algorithms suggest this is a really important topic. Let me dive deep into this for you..."
+                ];
+                
+                this.initializeElements();
+                this.setupEventListeners();
+                this.checkAuthentication();
+                this.startAnimations();
+            }
+
+            initializeElements() {
+                // Auth elements
+                this.authContainer = document.getElementById('authContainer');
+                this.introPage = document.getElementById('introPage');
+                this.signUpPage = document.getElementById('signUpPage');
+                this.signInPage = document.getElementById('signInPage');
+                this.mainApp = document.getElementById('mainApp');
+                this.getStartedBtn = document.getElementById('getStartedBtn');
+                this.signInBtn = document.getElementById('signInBtn');
+                this.switchToSignIn = document.getElementById('switchToSignIn');
+                this.switchToSignUp = document.getElementById('switchToSignUp');
+                this.signUpForm = document.getElementById('signUpForm');
+                this.signInForm = document.getElementById('signInForm');
+                this.logoutBtn = document.getElementById('logoutBtn');
+                this.userName = document.getElementById('userName');
+                this.userEmail = document.getElementById('userEmail');
+
+                // Main elements
+                this.chatContainer = document.getElementById('chatContainer');
+                this.messageInput = document.getElementById('messageInput');
+                this.sendBtn = document.getElementById('sendBtn');
+                this.typingIndicator = document.getElementById('typingIndicator');
+                this.chatTitle = document.getElementById('chatTitle');
+                this.chatList = document.getElementById('chatList');
+                
+                // Sidebar elements
+                this.sidebar = document.querySelector('.sidebar');
+                this.sidebarToggle = document.getElementById('sidebarToggle');
+                this.newChatBtn = document.getElementById('newChatBtn');
+                this.settingsBtn = document.getElementById('settingsBtn');
+                this.clearAllBtn = document.getElementById('clearAllBtn');
+                
+                // Modal elements
+                this.settingsModal = document.getElementById('settingsModal');
+                this.confirmModal = document.getElementById('confirmModal');
+                this.closeSettings = document.getElementById('closeSettings');
+                this.confirmAction = document.getElementById('confirmAction');
+                this.cancelAction = document.getElementById('cancelAction');
+                this.confirmMessage = document.getElementById('confirmMessage');
+                
+                // Settings elements
+                this.themeSelect = document.getElementById('themeSelect');
+                this.speedSelect = document.getElementById('speedSelect');
+                this.soundToggle = document.getElementById('soundToggle');
+                this.autosaveToggle = document.getElementById('autosaveToggle');
+                this.exportChats = document.getElementById('exportChats');
+                this.importChats = document.getElementById('importChats');
+            }
+
+            setupEventListeners() {
+                // Auth functionality
+                this.getStartedBtn.addEventListener('click', () => this.showSignUp());
+                this.signInBtn.addEventListener('click', () => this.showSignIn());
+                this.switchToSignIn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showSignIn();
+                });
+                this.switchToSignUp.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showSignUp();
+                });
+                this.signUpForm.addEventListener('submit', (e) => this.handleSignUp(e));
+                this.signInForm.addEventListener('submit', (e) => this.handleSignIn(e));
+                this.logoutBtn.addEventListener('click', () => this.handleLogout());
+
+                // Chat functionality
+                if (this.sendBtn) {
+                    this.sendBtn.addEventListener('click', () => this.sendMessage());
+                }
+                if (this.messageInput) {
+                    this.messageInput.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            this.sendMessage();
+                        }
+                    });
+                    this.messageInput.addEventListener('input', () => this.autoResize());
+                }
+
+                // Sidebar functionality
+                if (this.sidebarToggle) {
+                    this.sidebarToggle.addEventListener('click', () => this.toggleSidebar());
+                }
+                if (this.newChatBtn) {
+                    this.newChatBtn.addEventListener('click', () => this.createNewChat());
+                }
+                if (this.settingsBtn) {
+                    this.settingsBtn.addEventListener('click', () => this.openSettings());
+                }
+                if (this.clearAllBtn) {
+                    this.clearAllBtn.addEventListener('click', () => this.confirmClearAll());
+                }
+
+                // Modal functionality
+                this.closeSettings.addEventListener('click', () => this.closeModal('settingsModal'));
+                this.cancelAction.addEventListener('click', () => this.closeModal('confirmModal'));
+                this.confirmAction.addEventListener('click', () => this.executeConfirmedAction());
+
+                // Settings functionality
+                this.themeSelect.addEventListener('change', () => this.updateSettings());
+                this.speedSelect.addEventListener('change', () => this.updateSettings());
+                this.soundToggle.addEventListener('change', () => this.updateSettings());
+                this.autosaveToggle.addEventListener('change', () => this.updateSettings());
+                this.exportChats.addEventListener('click', () => this.exportChats());
+                this.importChats.addEventListener('click', () => this.importChats());
+
+                // Close modals on outside click
+                window.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('modal')) {
+                        this.closeModal(e.target.id);
+                    }
+                });
+            }
+
+            // ============ AUTHENTICATION SYSTEM ============
+            
+            checkAuthentication() {
+                if (this.currentSession && this.users[this.currentSession.email]) {
+                    this.currentUser = this.users[this.currentSession.email];
+                    this.loadUserData();
+                    this.showMainApp();
+                } else {
+                    this.showIntro();
+                }
+            }
+
+            showIntro() {
+                this.authContainer.style.display = 'flex';
+                this.introPage.style.display = 'flex';
+                this.signUpPage.style.display = 'none';
+                this.signInPage.style.display = 'none';
+                this.mainApp.style.display = 'none';
+            }
+
+            showSignUp() {
+                this.introPage.style.display = 'none';
+                this.signUpPage.style.display = 'flex';
+                this.signInPage.style.display = 'none';
+                document.getElementById('signUpName').focus();
+            }
+
+            showSignIn() {
+                this.introPage.style.display = 'none';
+                this.signUpPage.style.display = 'none';
+                this.signInPage.style.display = 'flex';
+                document.getElementById('signInEmail').focus();
+            }
+
+            showMainApp() {
+                this.authContainer.style.display = 'none';
+                this.mainApp.style.display = 'flex';
+                this.loadChatHistory();
+                if (Object.keys(this.chats).length === 0) {
+                    // Only create welcome chat if no chats exist
+                    this.createWelcomeChat();
+                } else {
+                    // Load the most recent chat
+                    const sortedChats = Object.values(this.chats).sort((a, b) => 
+                        new Date(b.updated) - new Date(a.updated)
+                    );
+                    if (sortedChats.length > 0) {
+                        this.loadChat(sortedChats[0].id);
+                    }
+                }
+                this.applySettings();
+                if (this.messageInput) this.messageInput.focus();
+            }
+
+            handleSignUp(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('signUpName').value.trim();
+                const email = document.getElementById('signUpEmail').value.trim().toLowerCase();
+                const password = document.getElementById('signUpPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                // Validation
+                if (!name || !email || !password) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters');
+                    return;
+                }
+
+                if (this.users[email]) {
+                    alert('Account with this email already exists');
+                    return;
+                }
+
+                // Create new user
+                const newUser = {
+                    name: name,
+                    email: email,
+                    password: password, // In real app, this would be hashed
+                    created: new Date().toISOString(),
+                    chats: {},
+                    settings: {
+                        theme: 'cosmic',
+                        speed: 'normal',
+                        sound: true,
+                        autosave: true
+                    }
+                };
+
+                this.users[email] = newUser;
+                this.saveUsers();
+
+                // Auto sign in
+                this.currentUser = newUser;
+                this.currentSession = { email: email, loginTime: new Date().toISOString() };
+                this.saveSession();
+                this.loadUserData();
+                
+                // Send welcome email
+                this.sendWelcomeEmail(name, email);
+                
+                this.showMainApp();
+
+                // Reset form
+                this.signUpForm.reset();
+            }
+
+            handleSignIn(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('signInEmail').value.trim().toLowerCase();
+                const password = document.getElementById('signInPassword').value;
+                const rememberMe = document.getElementById('rememberMe').checked;
+
+                if (!email || !password) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                const user = this.users[email];
+                if (!user || user.password !== password) {
+                    alert('Invalid email or password');
+                    return;
+                }
+
+                // Sign in successful
+                this.currentUser = user;
+                this.currentSession = { 
+                    email: email, 
+                    loginTime: new Date().toISOString(),
+                    rememberMe: rememberMe
+                };
+                this.saveSession();
+                this.loadUserData();
+                this.showMainApp();
+
+                // Reset form
+                this.signInForm.reset();
+            }
+
+            handleLogout() {
+                this.currentUser = null;
+                this.currentSession = null;
+                this.currentChatId = null;
+                this.chats = {};
+                localStorage.removeItem('mightyAI_session');
+                this.showIntro();
+            }
+
+            loadUserData() {
+                if (!this.currentUser) return;
+                
+                // Load user's chats and settings
+                this.chats = this.currentUser.chats || {};
+                this.settings = this.currentUser.settings || {
+                    theme: 'cosmic',
+                    speed: 'normal',
+                    sound: true,
+                    autosave: true
+                };
+
+                // Update UI
+                this.userName.textContent = this.currentUser.name;
+                this.userEmail.textContent = this.currentUser.email;
+            }
+
+            saveUsers() {
+                localStorage.setItem('mightyAI_users', JSON.stringify(this.users));
+            }
+
+            saveSession() {
+                localStorage.setItem('mightyAI_session', JSON.stringify(this.currentSession));
+            }
+
+            saveUserData() {
+                if (!this.currentUser) return;
+                
+                // Save chats and settings to user account
+                this.currentUser.chats = this.chats;
+                this.currentUser.settings = this.settings;
+                this.users[this.currentUser.email] = this.currentUser;
+                this.saveUsers();
+            }
+
+            // Send welcome email via API
+            async sendWelcomeEmail(name, email) {
+                try {
+                    const response = await fetch('/api/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name, email })
+                    });
+
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        console.log('✅ Welcome email sent successfully!');
+                        // Show success notification
+                        this.showEmailNotification('Welcome email sent! 📧', 'success');
+                    } else {
+                        console.warn('⚠️ Email failed to send:', result.message);
+                        this.showEmailNotification('Account created! Email setup needed.', 'warning');
+                    }
+                } catch (error) {
+                    console.error('❌ Email API error:', error);
+                    this.showEmailNotification('Account created successfully!', 'info');
+                }
+            }
+
+            // Show email notification
+            showEmailNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `email-notification ${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas fa-envelope"></i>
+                        <span>${message}</span>
+                        <button class="close-notification" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+
+            // ============ CHAT MANAGEMENT ============
+            
+            createNewChat() {
+                this.currentChatId = 'chat_' + Date.now();
+                
+                const newChatMessage = `🚀 Hey there!\n\nI'm **Mighty AI** - ready to help with anything you need!\n\n**What's on your mind?** ✨`;
+                
+                this.chats[this.currentChatId] = {
+                    id: this.currentChatId,
+                    title: 'New Chat',
+                    messages: [
+                        {
+                            text: newChatMessage,
+                            isUser: false,
+                            timestamp: new Date().toISOString()
+                        }
+                    ],
+                    created: new Date().toISOString(),
+                    updated: new Date().toISOString()
+                };
+                
+                this.chatContainer.innerHTML = '';
+                this.addMessage(newChatMessage, false, false);
+                
+                this.chatTitle.textContent = 'New Chat';
+                this.saveUserData();
+                this.loadChatHistory();
+                if (this.messageInput) this.messageInput.focus();
+            }
+
+            createWelcomeChat() {
+                this.currentChatId = 'chat_' + Date.now();
+                
+                const welcomeMessage = `🚀 Welcome ${this.currentUser.name}!\n\nI'm **Mighty AI** - ready to help with anything you need!\n\n**What's on your mind?** ✨`;
+                
+                this.chats[this.currentChatId] = {
+                    id: this.currentChatId,
+                    title: 'Welcome Chat',
+                    messages: [
+                        {
+                            text: welcomeMessage,
+                            isUser: false,
+                            timestamp: new Date().toISOString()
+                        }
+                    ],
+                    created: new Date().toISOString(),
+                    updated: new Date().toISOString()
+                };
+                
+                this.chatContainer.innerHTML = '';
+                this.addMessage(welcomeMessage, false, false);
+                
+                this.chatTitle.textContent = 'Welcome Chat';
+                this.saveUserData();
+                this.loadChatHistory();
+                if (this.messageInput) this.messageInput.focus();
+            }
+
+            loadChat(chatId) {
+                if (!this.chats[chatId]) return;
+                
+                this.currentChatId = chatId;
+                const chat = this.chats[chatId];
+                this.chatTitle.textContent = chat.title;
+                
+                this.chatContainer.innerHTML = '';
+                chat.messages.forEach(msg => {
+                    this.addMessage(msg.text, msg.isUser, false);
+                });
+                
+                this.updateChatListSelection();
+            }
+
+            updateChatTitle(firstMessage) {
+                if (!this.currentChatId || !firstMessage) return;
+                
+                // Generate smart title based on message content
+                const smartTitle = this.generateSmartTitle(firstMessage);
+                
+                this.chats[this.currentChatId].title = smartTitle;
+                this.chatTitle.textContent = smartTitle;
+                this.saveUserData();
+                this.loadChatHistory();
+            }
+
+            generateSmartTitle(message) {
+                // Clean the message
+                const cleanMessage = message.toLowerCase().trim();
+                
+                // Define topic patterns and their corresponding titles
+                const topicPatterns = [
+                    // Programming & Development
+                    { patterns: ['code', 'programming', 'javascript', 'python', 'html', 'css', 'react', 'nodejs', 'function', 'variable', 'debug', 'error', 'algorithm'], title: '💻 Coding Help' },
+                    { patterns: ['web development', 'website', 'frontend', 'backend', 'database', 'api', 'server'], title: '🌐 Web Development' },
+                    { patterns: ['bug', 'fix', 'error', 'problem', 'issue', 'troubleshoot'], title: '🐛 Bug Fixing' },
+                    
+                    // Learning & Education
+                    { patterns: ['learn', 'tutorial', 'how to', 'explain', 'teach', 'understand', 'what is', 'definition'], title: '📚 Learning' },
+                    { patterns: ['homework', 'assignment', 'study', 'exam', 'test', 'education'], title: '🎓 Study Help' },
+                    { patterns: ['math', 'mathematics', 'equation', 'calculate', 'formula', 'solve'], title: '🔢 Math Problem' },
+                    
+                    // Writing & Content
+                    { patterns: ['write', 'essay', 'article', 'story', 'blog', 'content', 'draft'], title: '✍️ Writing Task' },
+                    { patterns: ['email', 'letter', 'message', 'communication', 'formal'], title: '📧 Communication' },
+                    { patterns: ['creative', 'story', 'poem', 'fiction', 'character', 'plot'], title: '🎨 Creative Writing' },
+                    
+                    // Business & Work
+                    { patterns: ['business', 'startup', 'marketing', 'strategy', 'plan', 'proposal'], title: '💼 Business Planning' },
+                    { patterns: ['resume', 'cv', 'job', 'interview', 'career', 'professional'], title: '👔 Career Help' },
+                    { patterns: ['meeting', 'presentation', 'project', 'deadline', 'workflow'], title: '📊 Work Project' },
+                    
+                    // Technology & Tools
+                    { patterns: ['ai', 'artificial intelligence', 'machine learning', 'chatbot', 'technology'], title: '🤖 AI Discussion' },
+                    { patterns: ['tool', 'software', 'app', 'application', 'platform', 'system'], title: '🛠️ Tech Tools' },
+                    { patterns: ['data', 'analysis', 'statistics', 'chart', 'graph', 'report'], title: '📈 Data Analysis' },
+                    
+                    // Personal & Lifestyle
+                    { patterns: ['health', 'fitness', 'exercise', 'diet', 'nutrition', 'wellness'], title: '🏃 Health & Fitness' },
+                    { patterns: ['travel', 'vacation', 'trip', 'destination', 'flight', 'hotel'], title: '✈️ Travel Planning' },
+                    { patterns: ['recipe', 'cooking', 'food', 'ingredient', 'meal', 'kitchen'], title: '👨‍🍳 Cooking' },
+                    { patterns: ['advice', 'help', 'problem', 'decision', 'suggestion', 'opinion'], title: '💡 Life Advice' },
+                    
+                    // Entertainment & Media
+                    { patterns: ['movie', 'film', 'tv show', 'series', 'entertainment', 'watch'], title: '🎬 Entertainment' },
+                    { patterns: ['music', 'song', 'artist', 'album', 'playlist', 'listen'], title: '🎵 Music' },
+                    { patterns: ['game', 'gaming', 'play', 'strategy', 'level', 'character'], title: '🎮 Gaming' },
+                    
+                    // Science & Research
+                    { patterns: ['science', 'research', 'experiment', 'theory', 'hypothesis', 'study'], title: '🔬 Science' },
+                    { patterns: ['history', 'historical', 'ancient', 'civilization', 'war', 'culture'], title: '📜 History' },
+                    { patterns: ['language', 'translation', 'grammar', 'vocabulary', 'linguistic'], title: '🗣️ Language' },
+                    
+                    // Finance & Money
+                    { patterns: ['money', 'finance', 'investment', 'budget', 'savings', 'crypto'], title: '💰 Finance' },
+                    { patterns: ['shopping', 'buy', 'purchase', 'product', 'review', 'recommendation'], title: '🛒 Shopping' },
+                    
+                    // Common Questions
+                    { patterns: ['what', 'how', 'why', 'when', 'where', 'who'], title: '❓ General Question' },
+                    { patterns: ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon'], title: '👋 Greeting' },
+                ];
+                
+                // Check each pattern
+                for (const topic of topicPatterns) {
+                    for (const pattern of topic.patterns) {
+                        if (cleanMessage.includes(pattern)) {
+                            return topic.title;
+                        }
+                    }
+                }
+                
+                // Try to extract key words for custom title
+                const words = cleanMessage.split(' ').filter(word => 
+                    word.length > 3 && 
+                    !['what', 'how', 'why', 'when', 'where', 'who', 'can', 'you', 'help', 'me', 'with', 'the', 'and', 'for', 'that', 'this', 'about'].includes(word)
+                );
+                
+                if (words.length > 0) {
+                    const keyWord = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+                    return `💬 ${keyWord} Discussion`;
+                }
+                
+                // Fallback based on message length and content
+                if (cleanMessage.includes('?')) {
+                    return '❓ Question';
+                } else if (cleanMessage.length > 50) {
+                    return '📝 Detailed Chat';
+                } else {
+                    return '💭 Quick Chat';
+                }
+            }
+
+            deleteChat(chatId) {
+                delete this.chats[chatId];
+                this.saveChats();
+                this.loadChatHistory();
+                
+                if (this.currentChatId === chatId) {
+                    this.createNewChat();
+                }
+            }
+
+            // ============ MESSAGE HANDLING ============
+            
+            addMessage(text, isUser = false, save = true) {
+                const messageGroup = document.createElement('div');
+                messageGroup.className = `message-group ${isUser ? 'user-group' : 'ai-group'}`;
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                
+                const avatarInner = document.createElement('div');
+                avatarInner.className = 'avatar-inner';
+                avatarInner.innerHTML = `<i class="fas fa-${isUser ? 'user' : 'robot'}"></i><div class="avatar-glow"></div>`;
+                avatar.appendChild(avatarInner);
+                
+                const bubble = document.createElement('div');
+                bubble.className = `message-bubble ${isUser ? '' : 'ai-bubble'}`;
+                
+                const header = document.createElement('div');
+                header.className = 'message-header';
+                header.innerHTML = `
+                    <span class="sender-name">${isUser ? 'You' : 'Mighty AI'}</span>
+                    <span class="message-time">Just now</span>
+                `;
+                
+                const content = document.createElement('div');
+                content.className = 'message-content';
+                content.innerHTML = `<p>${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`;
+                
+                bubble.appendChild(header);
+                bubble.appendChild(content);
+                
+                messageGroup.appendChild(avatar);
+                messageGroup.appendChild(bubble);
+                
+                this.chatContainer.appendChild(messageGroup);
+                this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+
+                // Save message
+                if (save && this.currentChatId && this.settings.autosave) {
+                    this.chats[this.currentChatId].messages.push({
+                        text: text,
+                        isUser: isUser,
+                        timestamp: new Date().toISOString()
+                    });
+                    this.chats[this.currentChatId].updated = new Date().toISOString();
+                    this.saveChats();
+                }
+
+                // Highlight capability and play sound
+                if (!isUser) {
+                    this.highlightRandomCapability();
+                    this.playSound();
+                }
+
+                // Update chat title with first user message or significant topic changes
+                if (isUser) {
+                    const messages = this.chats[this.currentChatId].messages;
+                    if (messages.length === 1) {
+                        // First message - set title
+                        this.updateChatTitle(text);
+                    } else if (messages.length % 6 === 1) {
+                        // Every 6 messages, check if topic has changed significantly
+                        const newTitle = this.generateSmartTitle(text);
+                        const currentTitle = this.chats[this.currentChatId].title;
+                        
+                        // Only update if it's a different category and not generic
+                        if (newTitle !== currentTitle && 
+                            !newTitle.includes('General Question') && 
+                            !newTitle.includes('Quick Chat') && 
+                            !currentTitle.includes('Welcome')) {
+                            this.chats[this.currentChatId].title = newTitle;
+                            this.chatTitle.textContent = newTitle;
+                            this.loadChatHistory();
+                        }
+                    }
+                }
+            }
+
+            sendMessage() {
+                const message = this.messageInput.value.trim();
+                if (!message) return;
+
+                this.addMessage(message, true);
+                this.messageInput.value = '';
+                this.autoResize();
+
+                const speeds = {
+                    slow: { min: 3000, max: 5000 },
+                    normal: { min: 1000, max: 3000 },
+                    fast: { min: 500, max: 1000 }
+                };
+                
+                const speed = speeds[this.settings.speed];
+                
+                setTimeout(() => {
+                    this.showTyping();
+                    
+                                    setTimeout(() => {
+                    this.hideTyping();
+                    const contextualResponse = this.generateContextualResponse(message);
+                    this.addMessage(contextualResponse);
+                }, speed.min + Math.random() * (speed.max - speed.min));
+                }, 500);
+            }
+
+            generateContextualResponse(userMessage) {
+                const topic = this.generateSmartTitle(userMessage);
+                
+                // Topic-specific responses
+                const topicResponses = {
+                    '💻 Coding Help': [
+                        "Great coding question! Let me break this down step by step for you. Based on my analysis, here's what I'd recommend...",
+                        "I love helping with programming! This is a common challenge developers face. Here's how you can approach it...",
+                        "Excellent question about coding! I can see you're working on something interesting. Let me share some best practices..."
+                    ],
+                    '🌐 Web Development': [
+                        "Web development is such an exciting field! For this particular challenge, I'd suggest considering these approaches...",
+                        "Perfect timing for this web dev question! I've helped many developers with similar issues. Here's my recommendation...",
+                        "Great web development question! The modern web stack offers several solutions for this. Let me explain..."
+                    ],
+                    '🐛 Bug Fixing': [
+                        "Bug hunting time! 🔍 Let me help you debug this issue. From what you've described, here are the most likely causes...",
+                        "I love a good debugging challenge! Let's systematically work through this problem together...",
+                        "Bugs can be frustrating, but they're also learning opportunities! Here's how we can tackle this step by step..."
+                    ],
+                    '📚 Learning': [
+                        "I'm excited to help you learn! Education is one of my favorite topics. Let me explain this concept clearly...",
+                        "Learning new things is fantastic! I'll break this down into digestible pieces so it's easy to understand...",
+                        "Great question for expanding your knowledge! Here's how I like to explain this concept..."
+                    ],
+                    '🎓 Study Help': [
+                        "Study time! 📖 I'm here to help you master this material. Let's work through this together...",
+                        "Perfect study question! I'll help you understand this thoroughly so you feel confident...",
+                        "Academic success is important! Let me provide a comprehensive explanation that will help you excel..."
+                    ],
+                    '🔢 Math Problem': [
+                        "Math challenge accepted! 🧮 Let me walk you through this problem step by step with clear explanations...",
+                        "I love mathematics! There's always an elegant solution. Here's how we can approach this systematically...",
+                        "Great math question! Let me show you not just the answer, but the reasoning behind each step..."
+                    ],
+                    '✍️ Writing Task': [
+                        "Writing is an art! ✨ I'd be happy to help you craft something compelling. Here's how we can approach this...",
+                        "Excellent writing project! Let me share some techniques that will make your content really shine...",
+                        "I love helping with writing! Good writing combines creativity with structure. Here's my suggestion..."
+                    ],
+                    '💼 Business Planning': [
+                        "Business strategy is crucial for success! 💪 Based on your question, here are some key considerations...",
+                        "Great business thinking! Strategic planning requires careful analysis. Let me share some insights...",
+                        "Excellent business question! Successful ventures require solid planning. Here's what I'd recommend..."
+                    ],
+                    '👔 Career Help': [
+                        "Career development is so important! 🚀 I'm here to help you advance professionally. Here's my advice...",
+                        "Perfect career question! Professional growth requires strategic thinking. Let me share some insights...",
+                        "Career success is a journey! Based on your situation, here are some actionable steps..."
+                    ],
+                    '🤖 AI Discussion': [
+                        "AI conversations are fascinating! 🤖 As an AI myself, I find this topic particularly interesting. Here's my perspective...",
+                        "Love discussing AI technology! The field is evolving rapidly. Here's what I think about your question...",
+                        "AI is transforming everything! It's exciting to explore these concepts together. Let me share my insights..."
+                    ],
+                    '🏃 Health & Fitness': [
+                        "Health and wellness are fundamental! 💪 I'm glad you're focusing on this. Here's what I'd recommend...",
+                        "Great health question! Taking care of yourself is the best investment. Here's some helpful guidance...",
+                        "Fitness and wellness are so important! Based on your question, here are some evidence-based suggestions..."
+                    ],
+                    '✈️ Travel Planning': [
+                        "Travel planning is exciting! 🌍 There's nothing like exploring new places. Here's how I'd approach this...",
+                        "I love helping plan adventures! Travel creates the best memories. For your trip, I'd suggest...",
+                        "Perfect travel question! Good planning makes all the difference. Here are my recommendations..."
+                    ],
+                    '👨‍🍳 Cooking': [
+                        "Cooking is such a wonderful skill! 🍳 I'm excited to help you in the kitchen. Here's what I'd suggest...",
+                        "Food brings people together! Great culinary question. Based on your needs, here's my recommendation...",
+                        "I love helping with cooking! Good food is one of life's great pleasures. Here's how to make this amazing..."
+                    ],
+                    '🎬 Entertainment': [
+                        "Entertainment discussions are fun! 🍿 I enjoy exploring movies, shows, and media. Here's what I think...",
+                        "Great entertainment question! There's so much amazing content out there. Based on your interests...",
+                        "I love talking about movies and shows! Entertainment is such a great way to unwind. Here's my take..."
+                    ],
+                    '💰 Finance': [
+                        "Financial planning is crucial! 💰 Smart money management opens up opportunities. Here's my advice...",
+                        "Excellent financial question! Building wealth requires good strategies. Based on your situation...",
+                        "Money matters are important! Financial literacy is key to success. Here's what I'd recommend..."
+                    ],
+                    '👋 Greeting': [
+                        "Hello there! 👋 It's wonderful to meet you! I'm excited to chat and help with whatever you need...",
+                        "Hi! Great to see you here! 😊 I'm ready to assist you with any questions or tasks you have...",
+                        "Hey! Welcome! 🌟 I'm thrilled to be your AI companion today. What can we explore together?"
+                    ]
+                };
+                
+                // Get responses for the detected topic
+                const responses = topicResponses[topic] || this.aiResponses;
+                
+                // Return a random response from the appropriate category
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+
+            // ============ UI FUNCTIONALITY ============
+            
+            showTyping() {
+                this.typingIndicator.style.display = 'flex';
+                this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
+            }
+
+            hideTyping() {
+                this.typingIndicator.style.display = 'none';
+            }
+
+            autoResize() {
+                this.messageInput.style.height = 'auto';
+                this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 120) + 'px';
+            }
+
+            toggleSidebar() {
+                this.sidebar.classList.toggle('collapsed');
+            }
+
+            highlightRandomCapability() {
+                const pills = document.querySelectorAll('.pill');
+                const randomPill = pills[Math.floor(Math.random() * pills.length)];
+                randomPill.classList.add('active');
+                setTimeout(() => randomPill.classList.remove('active'), 3000);
+            }
+
+            playSound() {
+                if (!this.settings.sound) return;
+                
+                // Create a subtle notification sound
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.01);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.2);
+            }
+
+            // ============ STORAGE & SETTINGS ============
+            
+            saveChats() {
+                this.saveUserData();
+            }
+
+            saveSettings() {
+                this.saveUserData();
+            }
+
+            loadChatHistory() {
+                this.chatList.innerHTML = '';
+                
+                const sortedChats = Object.values(this.chats).sort((a, b) => 
+                    new Date(b.updated) - new Date(a.updated)
+                );
+
+                sortedChats.forEach(chat => {
+                    const chatItem = document.createElement('div');
+                    chatItem.className = `chat-item ${chat.id === this.currentChatId ? 'active' : ''}`;
+                    chatItem.dataset.chatId = chat.id;
+                    chatItem.innerHTML = `
+                        <div class="chat-info">
+                            <div class="chat-title">${chat.title}</div>
+                            <div class="chat-date">${this.formatDate(chat.updated)}</div>
+                        </div>
+                        <button class="delete-chat" onclick="app.deleteChat('${chat.id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    chatItem.addEventListener('click', (e) => {
+                        if (!e.target.closest('.delete-chat')) {
+                            this.loadChat(chat.id);
+                        }
+                    });
+                    
+                    this.chatList.appendChild(chatItem);
+                });
+            }
+
+            updateChatListSelection() {
+                document.querySelectorAll('.chat-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.chatId === this.currentChatId) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            applySettings() {
+                this.themeSelect.value = this.settings.theme;
+                this.speedSelect.value = this.settings.speed;
+                this.soundToggle.checked = this.settings.sound;
+                this.autosaveToggle.checked = this.settings.autosave;
+                
+                document.body.className = `theme-${this.settings.theme}`;
+            }
+
+            updateSettings() {
+                this.settings = {
+                    theme: this.themeSelect.value,
+                    speed: this.speedSelect.value,
+                    sound: this.soundToggle.checked,
+                    autosave: this.autosaveToggle.checked
+                };
+                
+                this.saveSettings();
+                this.applySettings();
+            }
+
+            // ============ MODAL FUNCTIONALITY ============
+            
+            openSettings() {
+                this.settingsModal.style.display = 'flex';
+            }
+
+            closeModal(modalId) {
+                document.getElementById(modalId).style.display = 'none';
+            }
+
+            confirmClearAll() {
+                this.confirmMessage.textContent = 'Are you sure you want to delete all chats? This action cannot be undone.';
+                this.confirmModal.style.display = 'flex';
+                this.confirmAction.onclick = () => this.clearAllChats();
+            }
+
+            executeConfirmedAction() {
+                this.closeModal('confirmModal');
+            }
+
+            clearAllChats() {
+                this.chats = {};
+                this.saveChats();
+                this.createNewChat();
+                this.closeModal('confirmModal');
+            }
+
+            // ============ IMPORT/EXPORT ============
+            
+            exportChats() {
+                const dataStr = JSON.stringify(this.chats, null, 2);
+                const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `mighty-ai-chats-${new Date().toISOString().split('T')[0]}.json`;
+                link.click();
+                URL.revokeObjectURL(url);
+            }
+
+            importChats() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = '.json';
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            try {
+                                const importedChats = JSON.parse(e.target.result);
+                                this.chats = { ...this.chats, ...importedChats };
+                                this.saveChats();
+                                this.loadChatHistory();
+                                alert('Chats imported successfully!');
+                            } catch (error) {
+                                alert('Error importing chats. Please check the file format.');
+                            }
+                        };
+                        reader.readAsText(file);
+                    }
+                };
+                input.click();
+            }
+
+            // ============ UTILITIES ============
+            
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                const now = new Date();
+                const diff = now - date;
+                
+                if (diff < 60000) return 'Just now';
+                if (diff < 3600000) return `${Math.floor(diff / 60000)}m ago`;
+                if (diff < 86400000) return `${Math.floor(diff / 3600000)}h ago`;
+                if (diff < 604800000) return `${Math.floor(diff / 86400000)}d ago`;
+                
+                return date.toLocaleDateString();
+            }
+
+            startAnimations() {
+                setTimeout(() => {
+                    const pills = document.querySelectorAll('.pill');
+                    pills.forEach((pill, index) => {
+                        pill.style.animationDelay = `${index * 0.1}s`;
+                        pill.style.animation = 'slideInUp 0.5s ease-out forwards';
+                    });
+                }, 500);
+            }
+        }
+
+        // Initialize the app
+        const app = new MightyAI();
+        
+        // Make it globally accessible for onclick handlers
+        window.app = app;
+    </script>
+</body>
+</html>
