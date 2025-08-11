@@ -9,11 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
     <!-- Animated Cosmic Background -->
     <div class="cosmic-bg">
         <div class="stars"></div>
         <div class="floating-particles"></div>
     </div>
+    
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Authentication & Intro Pages -->
     <div class="auth-container" id="authContainer">
@@ -234,9 +240,9 @@
         </aside>
 
         <!-- Main Content Area -->
-        <div class="main-content">
+        <div class="main-content" id="main-content" role="main">
             <!-- Top Header -->
-            <header class="top-header">
+            <header class="top-header" role="banner">
                 <div class="header-left">
                     <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
                         <i class="fas fa-bars"></i>
@@ -577,6 +583,55 @@
                 window.addEventListener('click', (e) => {
                     if (e.target.classList.contains('modal')) {
                         this.closeModal(e.target.id);
+                    }
+                });
+
+                // Handle window resize for responsive sidebar
+                window.addEventListener('resize', () => {
+                    const isMobile = window.innerWidth <= 768;
+                    const overlay = document.getElementById('sidebarOverlay');
+                    
+                    if (!isMobile) {
+                        // Desktop: Remove mobile classes
+                        this.sidebar.classList.remove('open');
+                        if (overlay) overlay.classList.remove('active');
+                    } else {
+                        // Mobile: Remove desktop collapsed class
+                        this.sidebar.classList.remove('collapsed');
+                    }
+                });
+
+                // Add touch gesture support for mobile sidebar
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                document.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                document.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipeGesture();
+                });
+                
+                // Keyboard navigation improvements
+                document.addEventListener('keydown', (e) => {
+                    // Escape to close sidebar on mobile
+                    if (e.key === 'Escape') {
+                        const isMobile = window.innerWidth <= 768;
+                        const overlay = document.getElementById('sidebarOverlay');
+                        
+                        if (isMobile && this.sidebar.classList.contains('open')) {
+                            this.sidebar.classList.remove('open');
+                            if (overlay) overlay.classList.remove('active');
+                        }
+                        
+                        // Also close modals
+                        document.querySelectorAll('.modal').forEach(modal => {
+                            if (modal.style.display === 'flex') {
+                                modal.style.display = 'none';
+                            }
+                        });
                     }
                 });
             }
@@ -1222,7 +1277,24 @@
             }
 
             toggleSidebar() {
-                this.sidebar.classList.toggle('collapsed');
+                // Check if we're on mobile/tablet
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    this.sidebar.classList.toggle('open');
+                    const overlay = document.getElementById('sidebarOverlay');
+                    if (overlay) {
+                        overlay.classList.toggle('active');
+                        
+                        // Close sidebar when clicking overlay
+                        overlay.onclick = () => {
+                            this.sidebar.classList.remove('open');
+                            overlay.classList.remove('active');
+                        };
+                    }
+                } else {
+                    this.sidebar.classList.toggle('collapsed');
+                }
             }
 
             highlightRandomCapability() {
@@ -1230,6 +1302,32 @@
                 const randomPill = pills[Math.floor(Math.random() * pills.length)];
                 randomPill.classList.add('active');
                 setTimeout(() => randomPill.classList.remove('active'), 3000);
+            }
+
+            handleSwipeGesture() {
+                const isMobile = window.innerWidth <= 768;
+                if (!isMobile) return;
+                
+                const swipeThreshold = 100;
+                const touchStartX = window.touchStartX || 0;
+                const touchEndX = window.touchEndX || 0;
+                const overlay = document.getElementById('sidebarOverlay');
+                
+                // Right swipe (open sidebar)
+                if (touchEndX > touchStartX + swipeThreshold && touchStartX < 50) {
+                    this.sidebar.classList.add('open');
+                    if (overlay) overlay.classList.add('active');
+                }
+                
+                // Left swipe (close sidebar)
+                if (touchStartX > touchEndX + swipeThreshold && this.sidebar.classList.contains('open')) {
+                    this.sidebar.classList.remove('open');
+                    if (overlay) overlay.classList.remove('active');
+                }
+                
+                // Store values for next use
+                window.touchStartX = touchStartX;
+                window.touchEndX = touchEndX;
             }
 
             playSound() {
