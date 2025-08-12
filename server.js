@@ -1,22 +1,29 @@
 const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
+// Use global fetch in Node 18+; if unavailable, instruct user to upgrade Node
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 // Middleware
 app.use(express.static('.'));
 app.use(express.json());
 
-// Email configuration (using Gmail as example)
-const emailTransporter = nodemailer.createTransporter({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER || 'your-email@gmail.com', // Set via environment variable
-        pass: process.env.EMAIL_PASS || 'your-app-password'      // Set via environment variable
-    }
-});
+// Email configuration (optional - commenting out for now)
+let emailTransporter = null;
+try {
+    // Fix incorrect API call name: createTransport (not createTransporter)
+    emailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL_USER || 'your-email@gmail.com',
+            pass: process.env.EMAIL_PASS || 'your-app-password'
+        }
+    });
+} catch (error) {
+    console.log('📧 Email disabled - nodemailer not configured');
+}
 
 // Email templates
 const generateWelcomeEmail = (userName, userEmail) => {
@@ -105,6 +112,10 @@ const generateWelcomeEmail = (userName, userEmail) => {
 
 // Send welcome email function
 const sendWelcomeEmail = async (userName, userEmail) => {
+    if (!emailTransporter) {
+        console.log(`📧 Email disabled - would send welcome to ${userEmail}`);
+        return { success: false, error: 'Email not configured' };
+    }
     try {
         const emailOptions = generateWelcomeEmail(userName, userEmail);
         await emailTransporter.sendMail(emailOptions);
@@ -160,6 +171,35 @@ app.post('/api/test-email', async (req, res) => {
     }
 });
 
+// AI proxy endpoint to avoid CORS when calling Ollama from the browser
+app.post('/api/ai', async (req, res) => {
+    try {
+        const { model = 'llama3.2', prompt, stream = false, options = {} } = req.body || {};
+
+        if (!prompt || typeof prompt !== 'string') {
+            return res.status(400).json({ success: false, message: 'Prompt is required' });
+        }
+
+        // Forward the request to local Ollama
+        const ollamaResponse = await fetch('http://localhost:11434/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model, prompt, stream, options })
+        });
+
+        if (!ollamaResponse.ok) {
+            const text = await ollamaResponse.text().catch(() => '');
+            return res.status(ollamaResponse.status).json({ success: false, message: 'Ollama error', details: text });
+        }
+
+        const data = await ollamaResponse.json();
+        return res.json({ success: true, response: data.response });
+    } catch (error) {
+        console.error('AI proxy error:', error);
+        return res.status(500).json({ success: false, message: 'AI proxy failed', error: String(error && error.message || error) });
+    }
+});
+
 // Main route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
@@ -170,4 +210,15 @@ app.listen(PORT, () => {
     console.log(`🌐 Open your browser and go to: http://localhost:${PORT}`);
     console.log(`💬 Start chatting with your AI companion!`);
     console.log(`📧 Email notifications enabled!`);
+}).on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        const fallback = PORT + 1;
+        console.log(`⚠️  Port ${PORT} in use. Trying ${fallback}...`);
+        app.listen(fallback, () => {
+            console.log(`🚀 Mighty AI is running on fallback port ${fallback}`);
+            console.log(`🌐 Open your browser and go to: http://localhost:${fallback}`);
+        });
+    } else {
+        throw err;
+    }
 });
